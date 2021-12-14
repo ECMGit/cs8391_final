@@ -1,0 +1,23 @@
+{
+  "SC1": [
+    {"id":1, "cost":20, "reliability":0.95, "time": 2, "availability":0.95},
+    {"id":2, "cost":30, "reliability":0.99, "time": 3, "availability":0.89},
+    {"id":3, "cost":23, "reliability":0.98, "time": 23, "availability":0.98},
+    {"id":4, "cost":12, "reliability":0.99, "time": 1, "availability":0.02},
+    {"id":5, "cost":25, "reliability":0.89, "time": 3, "availability":0.78}],
+
+  "SC2":[
+    {"id":1, "cost":12, "reliability":0.70, "time": 3, "availability":0.70},
+    {"id":2, "cost":15, "reliability":0.99, "time": 5, "availability":0.93},
+    {"id":3, "cost":53, "reliability":0.96, "time": 8, "availability":0.96}],
+
+  "SC3":[
+    {"id":1, "cost":11, "reliability":0.97, "time": 9, "availability":0.97},
+    {"id":2, "cost":12, "reliability":0.89, "time": 12, "availability":0.89},
+    {"id":3, "cost":12, "reliability":0.90, "time": 1, "availability":0.90},
+    {"id":4, "cost":15, "reliability":0.91, "time": 3, "availability":0.98},
+    {"id":5, "cost":18, "reliability":0.56, "time": 6, "availability":0.56},
+    {"id":6, "cost":23, "reliability":0.68, "time": 2, "availability":0.67},
+    {"id":7, "cost":22, "reliability":0.59, "time": 1, "availability":0.59},
+    {"id":8, "cost":21, "reliability":0.92, "time": 2, "availability":0.89}]
+}

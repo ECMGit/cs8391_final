@@ -1,0 +1,206 @@
+@()
+
+@main("Lab 2 MashUps") {
+@defining(play.core.PlayVersion.current) { version =>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m8">
+                <div id="mapid"></div>
+                <a class="waves-effect waves-light btn" id="clear">clear</a>
+                <script type="text/javascript">
+                        var mymap = L.map('mapid').setView([0, 0], 2);
+                        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox/streets-v11',
+                            tileSize: 512,
+                            zoomOffset: -1,
+                            accessToken: 'pk.eyJ1Ijoic2poeGJ1ZzEwMjQiLCJhIjoiY2t1aHYwNXN5MmkwcDJ4bm5jMXN0ZHB2dSJ9.WuN2FYdLnkBglu7WKE6IKw'
+                        }).addTo(mymap);
+
+                        var layers = [];
+                        const location_arr = [[36.1249181,-115.3154276],
+                            [32.8242389,-117.3898522], [28.4811011,-81.4830936],
+                            [41.8336474,-87.8723908], [40.7765867,-111.9906966],
+                            [39.9385449,116.1165886], [34.0201598,-118.6926057],
+                            [25.7823907,-80.2996703], [38.8936704,-77.1550032],
+                            [21.3280192,-157.869285], [37.3708853,-122.0026578],
+                            [61.1076995,-150.0020572],[40.6971478,-74.2605509],
+                            [37.7576792,-122.5078116], [21.3280192,-157.869285],[37.7576792,-122.5078116],
+                            [45.4627123,9.1075209],[39.9385449,116.1165886]];
+                        function addMarker(obj){
+                            var id = obj.getAttribute("locationIndex");
+                            var marker = L.marker(location_arr[id]).addTo(mymap);
+                            layers.push(marker);
+                        }
+                        document.getElementById("clear").onclick = function(){
+                            var checkboxList = document.getElementsByClassName("addressCheckBox");
+                            for(var i = 0; i < checkboxList.length; ++i){
+                                checkboxList[i].checked = "";
+                            }
+                            for(var i = 0; i < layers.length; i++){
+                                mymap.removeLayer(layers[i]);
+                            }
+                        }
+                </script>
+            </div>
+            <div class="col s12 m2">
+                <form action="#">
+                    <h4>ICWS</h4>
+                    <label id="location" locationIndex=0 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2003: Las Vegas, NV</span>
+                    </label>
+                    <label id="location" locationIndex=1 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2004: San Diego, CA</span>
+                    </label>
+                    <label id="location" locationIndex=2 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2005: Orlando, FL</span>
+                    </label>
+                    <label id="location" locationIndex=3 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2006: Chicago, IL</span>
+                    </label>
+                    <label id="location" locationIndex=4 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2007: Salt Lake City, UT</span>
+                    </label>
+                    <label id="location" locationIndex=5 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2008: Beijing, China</span>
+                    </label>
+                    <label id="location" locationIndex=6 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2009: Los Angeles, CA</span>
+                    </label>
+                    <label id="location" locationIndex=7 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2010: Miami, FL</span>
+                    </label>
+                    <label id="location" locationIndex=8 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2011: Washington DC</span>
+                    </label>
+                    <label id="location" locationIndex=9 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2012: Honolulu, HI</span>
+                    </label>
+                    <label id="location" locationIndex=10 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2013: Santa Clara, CA</span>
+                    </label>
+                    <label id="location" locationIndex=11 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2014: Anchorage, AK</span>
+                    </label>
+                    <label id="location" locationIndex=12 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2015: New York, NY</span>
+                    </label>
+                    <label id="location" locationIndex=13 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2016: San Francisco, CA</span>
+                    </label>
+                    <label id="location" locationIndex=14 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2017: Honolulu, HI</span>
+                    </label>
+                    <label id="location" locationIndex=15 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2018: San Francisco</span>
+                    </label>
+                    <label id="location" locationIndex=16 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2019: Millan, Italy</span>
+                    </label>
+                    <label id="location" locationIndex=17 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2020: Beijing, China</span>
+                    </label>
+                </form>
+            </div>
+            <div class="col s12 m2">
+                <form action="#">
+                    <h4>SCC</h4>
+                    <label id="location" locationIndex=1 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2004: San Diego, CA</span>
+                    </label>
+                    <label id="location" locationIndex=2 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2005: Orlando, FL</span>
+                    </label>
+                    <label id="location" locationIndex=3 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2006: Chicago, IL</span>
+                    </label>
+                    <label id="location" locationIndex=4 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2007: Salt Lake City, UT</span>
+                    </label>
+                    <label id="location" locationIndex=5 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2008: Beijing, China</span>
+                    </label>
+                    <label id="location" locationIndex=6 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2009: Los Angeles, CA</span>
+                    </label>
+                    <label id="location" locationIndex=7 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2010: Miami, FL</span>
+                    </label>
+                    <label id="location" locationIndex=8 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2011: Washington DC</span>
+                    </label>
+                    <label id="location" locationIndex=9 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2012: Honolulu, HI</span>
+                    </label>
+                    <label id="location" locationIndex=10 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2013: Santa Clara, CA</span>
+                    </label>
+                    <label id="location" locationIndex=11 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2014: Anchorage, AK</span>
+                    </label>
+                    <label id="location" locationIndex=12 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2015: New York, NY</span>
+                    </label>
+                    <label id="location" locationIndex=13 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2016: San Francisco, CA</span>
+                    </label>
+                    <label id="location" locationIndex=14 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2017: Honolulu, HI</span>
+                    </label>
+                    <label id="location" locationIndex=15 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2018: San Francisco</span>
+                    </label>
+                    <label id="location" locationIndex=16 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2019: Millan, Italy</span>
+                    </label>
+                    <label id="location" locationIndex=17 onclick = "addMarker(this)">
+                        <input type="checkbox" class="addressCheckBox"/>
+                        <span>2020: Beijing, China</span>
+                    </label>
+                </form>
+            </div>
+            <script type="text/javascript">
+
+            </script>
+        </div>
+    </div>
+</section>
+
+}
+}

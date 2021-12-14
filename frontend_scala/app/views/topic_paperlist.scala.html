@@ -1,0 +1,16 @@
+@import models.PaperIndex
+@(paperlist: Seq[PaperIndex])(implicit request: RequestHeader)
+@main("Lab 3 ML-Powered Automatic Paper Categorization") {
+    @defining(play.core.PlayVersion.current) { version =>
+        <section id="content">
+            <div class="container">
+                <div class="collection">
+                    @paperlist.map{ case paper =>
+                    <a href="@routes.PaperQueryController.getMetaByID(paper.pid)" class="collection-item">@paper.title</a>
+                    }
+                </div>
+            </div>
+        </section>
+
+    }
+}

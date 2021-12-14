@@ -1,0 +1,25 @@
+@(paper: Paper)(implicit request: RequestHeader)
+@main("Lab 3 ML-Powered Automatic Paper Categorization") {
+    @defining(play.core.PlayVersion.current) { version =>
+        <section id="content">
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title"><a href="@routes.PaperQueryController.getFromAminerByTitle(paper.title)">@paper.title</a></span>
+                            <p>Abstract: @paper.pabstract</p>
+                            <ul class="collection blue-text">
+                                <li class="collection-item">Page: @paper.pages</li>
+                                <li class="collection-item">Year: @paper.year</li>
+                                <li class="collection-item">Journal: @paper.journal</li>
+                                <li class="collection-item">Volume: @paper.volume</li>
+                                <li class="collection-item">BookTitle: @paper.bookTitle</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    }
+}

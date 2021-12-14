@@ -1,0 +1,16 @@
+@import models.Topic
+@(topics: Seq[Topic])(implicit request: RequestHeader)
+@main("Lab 3 ML-Powered Automatic Paper Categorization") {
+    @defining(play.core.PlayVersion.current) { version =>
+        <section id="content">
+            <div class="container">
+                <div class="collection">
+                    @topics.map{ case topic =>
+                        <a href="@routes.HomeController.LDACategoryByTopic(topic.id)" class="collection-item">@topic.terms.map{ term => <span class="badge">@term</span> }Topic: @topic.id</a>
+                    }
+                </div>
+            </div>
+        </section>
+
+    }
+}
